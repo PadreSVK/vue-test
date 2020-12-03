@@ -1,9 +1,7 @@
 <template>
-    <div>
-        <highcharts class="hc" :options="chartOptions" ref="chart">
-<option></option>
-
-        </highcharts>
+  <div>
+    <highcharts class="hc" :options="chartOptions" ref="chart">
+    </highcharts>
   </div>
 </template>
 
@@ -11,22 +9,21 @@
 import store from "./../store";
 
 export default {
-    data() {
-        return {
-            chartOptions: {
-                series: [
-                    {
-                        // data: store.getters.getData.map(function(x) { x.sallary })
-                        data: store.getters.getSallary
-                    }
-                ]
-            }
-        }
-    }
-}
+  data() {
+    return {
+      chartOptions: {
+        series: [
+          {
+            // data: store.getters.getSallary(store.state.personList), // when getter use personList directly
+            data: store.getters.getSallary(store.state),
+          },
+        ],
+      },
+    };
+  },
+};
 </script>
 
 
 <style>
-
 </style>
